@@ -1,0 +1,63 @@
+<h1> Angular Component Comuunication</h1>
+
+<div>
+    <label for="eingabeText">Bitte den Text eingeben:</label><br/>
+    <input id="eingabeText" type="text" [formControl]="eingabeText"/>
+</div>
+
+<p>Ausgabe: {{ eingabeText.value }}</p>
+
+<p *ngIf="confirmedText != undefined">
+  Text ist Okay:
+  <span [ngClass]="confirmedText === true ? 'green' : 'red'">
+    {{ confirmedText === true ? 'Ja' : 'Nein' }}
+  </span>
+</p>
+
+<div class="grid-container">
+  <div class="item1">
+    <app-child-one
+      [eingabeText]="eingabeText.value"
+      [parentAliasEingabeText]="eingabeText.value">
+    </app-child-one>
+  </div>  
+  <div class="item2">
+    <app-child-two
+      *ngIf="eingabeText.value"
+      [textToCheck]="eingabeText.value"
+      (feedbackEvent)="showFeedback($event)">
+    </app-child-two>
+  </div>
+</div>
+<!--
+
+  <app-child-one
+    [eingabeText]="eingabeText.value"
+  ></app-child-one>
+
+  <app-child-one
+    [eingabeText]="eingabeText.value"
+    [parentAliasEingabeText]="eingabeText.value"
+  ></app-child-one>
+
+
+
+<p *ngIf="confirmedText != undefined">
+  Text ist Okay:
+  <span [ngClass]="confirmedText === true ? 'green' : 'red'">
+    {{ confirmedText === true ? 'Ja' : 'Nein' }}
+  </span>
+</p>
+
+
+  <app-child-two
+*ngIf="eingabeText.value"
+[textToCheck]="eingabeText.value">
+</app-child-two>
+
+<app-child-two
+*ngIf="eingabeText.value"
+[textToCheck]="eingabeText.value"
+(feedbackEvent)="showFeedback($event)">
+</app-child-two>
+-->

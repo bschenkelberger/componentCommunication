@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>Child 2</h1>
+    <h2>Mit Feedback: <input id="feedback" type="checkbox" [formControl]="feedback"></h2>
+    Zu prüfender Text:
+    <p *ngIf="textToCheck">
+        "{{ textToCheck }}"
+    </p>
+
+    
+    <div *ngIf="feedback.value === true">
+        Ist der Text okay?
+        <p>
+        <input id="agreeText" type="checkbox" [formControl]="agreeText">
+        </p>
+        <button (click)="sentFeedback(agreeText.value)">Eingabe Bestätigen</button>
+    </div>
+
+</div>

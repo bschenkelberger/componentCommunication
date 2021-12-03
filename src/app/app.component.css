@@ -1,0 +1,28 @@
+.item1 { grid-area: left1; }
+.item2 { grid-area: right1; }
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'left1 right1';
+  grid-gap: 1px;
+  background-color: black;
+  padding: 1px;
+}
+
+.grid-container > div {
+  background-color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.green {
+  color: green;
+  font-size: 20px;
+}
+
+.red {
+  color: red;
+  font-size: 20px;
+}
